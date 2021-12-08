@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="WEB-INF/vaccine_tag.tld" prefix="vaccination" %>
+<%@taglib uri="WEB-INF/Health_Needs_Assessment.tld" prefix="vaccination" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -55,24 +55,19 @@
                 </center>
                 <div class="row" style="margin-top: 40px">
                     <div class="col-md-6">
-                        <h3>INDIVIDUAL REPORT</h3>
+                        <h3>NEED'S ASSESSMENT</h3>
                     </div>
-                    
-                    
-                    
                     <div class="col-md-6">
-                        <a style="margin-left:20%" type="button" class="btn btn-sm btn-primary" href="register_vaccine_takers.jsp">New Vaccine Recipient</a>
-                        
+                        <a style="margin-left:20%" type="button" class="btn btn-sm btn-secondary" href="register_health_center.jsp">New Health Center</a>
+                        <a type="button" class="btn btn-sm btn-secondary" href="health_center_list.jsp">Health center list</a>
                     </div>
                 </div>
                 
                 
                 <p></p>
-               <% 
-                String id = request.getParameter("id");
-               %>
-              
-               <vaccination:select table="register" displayformat="table" where='<%= "id="+request.getParameter("id")%>' />
+               
+               
+                <vaccination:select table="health_centre" displayformat="table" />
               
               </div>
             </div>
@@ -80,12 +75,8 @@
                 
         <script>
            $(window).on('load', function () {
-              $('#loading-msg').hide();    
+              $('#loading-msg').hide();
            })
-          
-           document.querySelector(".print").addEventListener("click",(ev)=>{
-               window.print();        
-           });
         </script>
                 
     </body>

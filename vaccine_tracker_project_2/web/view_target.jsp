@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="WEB-INF/vaccine_tag.tld" prefix="vaccination" %>
+<%@taglib uri="WEB-INF/target_tag.tld" prefix="vaccination" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -72,7 +72,7 @@
                 String id = request.getParameter("id");
                %>
               
-               <vaccination:select table="register" displayformat="table" where='<%= "id="+request.getParameter("id")%>' />
+               <vaccination:select table="register" displayformat="table" where="''" />
               
               </div>
             </div>

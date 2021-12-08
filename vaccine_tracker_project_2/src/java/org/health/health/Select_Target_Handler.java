@@ -21,7 +21,7 @@ import java.io.IOException;
  *
  * @author HP
  */
-public class Select_Handler extends SimpleTagSupport {
+public class Select_Target_Handler extends SimpleTagSupport {
 
     private String table;
     private String where;

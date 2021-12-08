@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.health.health;
+package org.health.administration;
 
+import org.health.health.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,10 +22,10 @@ import java.io.IOException;
  *
  * @author HP
  */
-public class Select_Handler extends SimpleTagSupport {
+public class Select_Target_Handler extends SimpleTagSupport {
 
     private String table;
-    private String where;
+    private String where = "";
     private String displayformat;
 
     /**
@@ -43,7 +44,13 @@ public class Select_Handler extends SimpleTagSupport {
              System.out.println(ex);
         }
         
-        String retrieveQuery = "SELECT * FROM " + table + " ORDER BY id DESC";
+        String retrieveQuery = "SELECT COUNT(*) as num FROM " + table + "";
+        
+        //checking if where 
+        if(!this.where.trim().equals("")){
+          retrieveQuery = "SELECT COUNT(*) as num FROM " + table + "";
+        
+        }
         
         try {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/vaccine_tracker","root","");  
@@ -57,20 +64,27 @@ public class Select_Handler extends SimpleTagSupport {
                 
                 out.println("<table class='table'>"
                     + "<tr>"
-                    + "<th>ID</th>"
-                    + "<th>HEALTH CENTER</th>"
-                    + "<th>LOCATION</th>"
-                    + "<th>REG.DATE</th>"
-                    + "<th>ACTION</th>"
+                   
+                    + "<th>VACCINATED PEOPLE</th>"
+                    + "<th>TARGET</th>"
+                    + "<th>PERCENTAGE</th>"
+                    + "<th>REMAINING_PERCENTAGE</th>"
                     + "</tr>");
                          
                     while(r.next()){
-                        out.println("<tr><td>"+r.getString("id")+"</td>");
-                        out.println("<td>"+r.getString("name")+"</td>");
-                        out.println("<td>"+r.getString("location")+"</td>");
-                        out.println("<td>"+r.getString("reg_date")+"</td>");
-                        out.println("<td><a type='button' class='btn btn-sm btn-primary' href='/vaccine_tracker_project_2/update_health_center.jsp?id="+r.getString("id")+"&hc="+r.getString("name")+"&loc="+r.getString("location")+"'><i class=\"fa fa-pencil-square-o\" aria-hidden=\"true\"></i></a> ");
-        
+                        
+   
+                        double count = r.getDouble("num");
+                        
+                        double target = 100.000;
+                       
+                        double percentage = (double)((count/target)*target);
+                        out.println("<td>"+r.getString("num")+"</td>");
+                        out.println("<td>"+target+"</td>");
+                        out.println("<td>"+percentage+"%</td>");
+                        out.println("<td>"+(target-percentage)+"%</td>");
+                        
+                   
                     }
                 out.println("</table>");
             

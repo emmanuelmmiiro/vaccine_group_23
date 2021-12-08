@@ -22,7 +22,7 @@
     -->
   <tag>
     <name>select</name>
-    <tag-class>org.health.health.Select_Handler</tag-class>
+    <tag-class>org.health.administration.Select_Target_Handler</tag-class>
     <body-content>scriptless</body-content>
     <attribute>
       <name>table</name>
@@ -42,10 +42,10 @@
       <type>java.lang.String</type>
     </attribute>
   </tag>
+  
   <tag>
-      
     <name>insert</name>
-    <tag-class>org.health.health.Insert_Handler</tag-class>
+    <tag-class>org.health.administration.Insert_Vaccine_Handler</tag-class>
     <body-content>scriptless</body-content>
     <attribute>
       <name>table</name>
@@ -60,9 +60,10 @@
       <type>java.lang.String</type>
     </attribute>
   </tag>
+  
   <tag>
     <name>update</name>
-    <tag-class>org.health.health.Update_Handler</tag-class>
+    <tag-class>org.health.administration.Update_Handler</tag-class>
     <body-content>scriptless</body-content>
     <attribute>
       <name>table</name>

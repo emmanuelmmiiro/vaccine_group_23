@@ -2,7 +2,7 @@
 <taglib version="2.1" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd">
   <tlib-version>1.0</tlib-version>
   <short-name>vaccination</short-name>
-  <uri>/WEB-INF/health_center_tag</uri>
+  <uri>/WEB-INF/Health_Needs_Assessment</uri>
   <!-- A validator verifies that the tags are used correctly at JSP
           translation time. Validator entries look like this: 
        <validator>
@@ -22,16 +22,11 @@
     -->
   <tag>
     <name>select</name>
-    <tag-class>org.health.health.Select_Handler</tag-class>
+    <tag-class>org.health.health.Health_Needs_Assessment</tag-class>
     <body-content>scriptless</body-content>
     <attribute>
       <name>table</name>
       <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-      <type>java.lang.String</type>
-    </attribute>
-    <attribute>
-      <name>where</name>
       <rtexprvalue>true</rtexprvalue>
       <type>java.lang.String</type>
     </attribute>
@@ -41,44 +36,8 @@
       <rtexprvalue>true</rtexprvalue>
       <type>java.lang.String</type>
     </attribute>
-  </tag>
-  <tag>
-      
-    <name>insert</name>
-    <tag-class>org.health.health.Insert_Handler</tag-class>
-    <body-content>scriptless</body-content>
-    <attribute>
-      <name>table</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-      <type>java.lang.String</type>
-    </attribute>
-    <attribute>
-      <name>values</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-      <type>java.lang.String</type>
-    </attribute>
-  </tag>
-  <tag>
-    <name>update</name>
-    <tag-class>org.health.health.Update_Handler</tag-class>
-    <body-content>scriptless</body-content>
-    <attribute>
-      <name>table</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-      <type>java.lang.String</type>
-    </attribute>
     <attribute>
       <name>where</name>
-      <required>true</required>
-      <rtexprvalue>true</rtexprvalue>
-      <type>java.lang.String</type>
-    </attribute>
-    <attribute>
-      <name>newvalues</name>
-      <required>true</required>
       <rtexprvalue>true</rtexprvalue>
       <type>java.lang.String</type>
     </attribute>
